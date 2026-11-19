@@ -1,11 +1,2 @@
-// Colle ici la configuration de ton projet Firebase
-// (Console Firebase › ⚙️ Paramètres du projet › Vos applications › Application Web › Config).
-// Ces valeurs ne sont pas secrètes : la sécurité vient des règles Firestore (firestore.rules).
-export const firebaseConfig = {
-  apiKey: "A_REMPLACER",
-  authDomain: "A_REMPLACER.firebaseapp.com",
-  projectId: "A_REMPLACER",
-  storageBucket: "A_REMPLACER.appspot.com",
-  messagingSenderId: "A_REMPLACER",
-  appId: "A_REMPLACER"
-};
+// Configuration du projet Firebase "Stock Appart". Ces valeurs ne sont pas secretes : la securite vient des regles Firestore.
+export const firebaseConfig = {apiKey: "AIzaSyBIF4WbryMwx3HdUmh_Wm6VHGsiUidd_YU", authDomain: "stock-appart.firebaseapp.com", projectId: "stock-appart", storageBucket: "stock-appart.firebasestorage.app", messagingSenderId: "177936351179", appId: "1:177936351179:web:71d776e6b37cb89032804e"};
