@@ -1,0 +1,24 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Mettez ici les adresses Gmail de toute la coloc, en minuscules.
+    function estDeLaColoc() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email in [
+          'toi@gmail.com',
+          'coloc1@gmail.com',
+          'coloc2@gmail.com'
+        ];
+    }
+
+    // Seules les trois collections de l'appli sont accessibles.
+    match /{col}/{id} {
+      allow read: if estDeLaColoc() && col in ['items', 'recipes', 'shopping'];
+      allow create, update: if estDeLaColoc() && col in ['items', 'recipes', 'shopping']
+                            && request.resource.data.size() <= 20;
+      allow delete: if estDeLaColoc() && col in ['items', 'recipes', 'shopping'];
+    }
+  }
+}
